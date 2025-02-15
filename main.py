@@ -38,6 +38,15 @@ async def findFile (
     return fin
 
 if __name__ == "__main__":
-    foundFiles = asyncio.run(findFile(path="./", fileName="main"))
+
+    path = input("What is the path you would like to search? (leave blank for current directory) ")
+    if path == "":
+        path = "./"
+    elif path[-1] != "/":
+        path += "/"
+    fileName = input("What is the file name you are looking for? ")
+    foundFiles = asyncio.run(findFile(path = path, fileName = fileName))
+
+    print(f"\nFound {len(foundFiles)} files:")
     for i in foundFiles:
         print(f"{i[1]} in {i[0]}")
