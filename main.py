@@ -42,6 +42,8 @@ if __name__ == "__main__":
     if path == "":
         path = os.getcwd() + os.sep + ".." + os.sep + ".." + os.sep
         base = True
+    else:
+        base = False
     fileName = input("What is the file name you are looking for? ")
     foundFiles = asyncio.run(findFile(path = path, fileName = fileName))
 
